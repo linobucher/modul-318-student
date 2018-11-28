@@ -16,7 +16,7 @@ namespace user_interface
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormFahrplan());
+            Application.Run(new FormMain());
         }
     }
 }
