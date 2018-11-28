@@ -1,11 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.106
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwissTransport", "src\SwissTransport\SwissTransport.csproj", "{D0262178-A48F-4DE0-807B-E76B63E39421}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwissTransportTest", "tests\SwissTransportTest\SwissTransportTest.csproj", "{959C6E54-5B1C-40F5-938A-C57B17451421}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{C5396B55-D8FB-4E46-8825-FDCFDF84279F}"
+	ProjectSection(SolutionItems) = preProject
+		..\Doc.Lino.docx = ..\Doc.Lino.docx
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "user interface", "user interface\user interface.csproj", "{2A8A4350-0FE4-4696-B6CA-5DB290E6C106}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,8 +28,15 @@ Global
 		{959C6E54-5B1C-40F5-938A-C57B17451421}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{959C6E54-5B1C-40F5-938A-C57B17451421}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{959C6E54-5B1C-40F5-938A-C57B17451421}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A8A4350-0FE4-4696-B6CA-5DB290E6C106}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A8A4350-0FE4-4696-B6CA-5DB290E6C106}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A8A4350-0FE4-4696-B6CA-5DB290E6C106}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A8A4350-0FE4-4696-B6CA-5DB290E6C106}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {71DF3F37-9F1C-4342-9C76-4BA1DE970293}
 	EndGlobalSection
 EndGlobal
