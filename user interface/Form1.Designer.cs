@@ -33,69 +33,75 @@
             this.cbo_to = new System.Windows.Forms.ComboBox();
             this.lbl_from = new System.Windows.Forms.Label();
             this.lbl_to = new System.Windows.Forms.Label();
-            this.btn_showconnection = new System.Windows.Forms.Button();
+            this.btn_searchconnection = new System.Windows.Forms.Button();
             this.btn_showstationfrom = new System.Windows.Forms.Button();
             this.btn_showstationto = new System.Windows.Forms.Button();
             this.lbl_SBFAHRPLAN = new System.Windows.Forms.Label();
-            this.lbo_connections = new System.Windows.Forms.ListBox();
+            this.dgV_connections = new System.Windows.Forms.DataGridView();
+            this.dgV_column_from = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgV_column_to = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgV_column_duration = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgV_connections)).BeginInit();
             this.SuspendLayout();
             // 
             // cbo_from
             // 
             this.cbo_from.FormattingEnabled = true;
-            this.cbo_from.Location = new System.Drawing.Point(11, 99);
-            this.cbo_from.Margin = new System.Windows.Forms.Padding(2);
+            this.cbo_from.Location = new System.Drawing.Point(22, 190);
+            this.cbo_from.Margin = new System.Windows.Forms.Padding(4);
             this.cbo_from.Name = "cbo_from";
-            this.cbo_from.Size = new System.Drawing.Size(188, 21);
+            this.cbo_from.Size = new System.Drawing.Size(372, 33);
             this.cbo_from.TabIndex = 0;
             // 
             // cbo_to
             // 
             this.cbo_to.FormattingEnabled = true;
-            this.cbo_to.Location = new System.Drawing.Point(334, 99);
-            this.cbo_to.Margin = new System.Windows.Forms.Padding(2);
+            this.cbo_to.Location = new System.Drawing.Point(668, 190);
+            this.cbo_to.Margin = new System.Windows.Forms.Padding(4);
             this.cbo_to.Name = "cbo_to";
-            this.cbo_to.Size = new System.Drawing.Size(188, 21);
+            this.cbo_to.Size = new System.Drawing.Size(372, 33);
             this.cbo_to.TabIndex = 1;
             // 
             // lbl_from
             // 
             this.lbl_from.AutoSize = true;
-            this.lbl_from.Location = new System.Drawing.Point(8, 84);
-            this.lbl_from.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_from.Location = new System.Drawing.Point(16, 162);
+            this.lbl_from.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_from.Name = "lbl_from";
-            this.lbl_from.Size = new System.Drawing.Size(26, 13);
+            this.lbl_from.Size = new System.Drawing.Size(50, 25);
             this.lbl_from.TabIndex = 2;
             this.lbl_from.Text = "Von";
             // 
             // lbl_to
             // 
             this.lbl_to.AutoSize = true;
-            this.lbl_to.Location = new System.Drawing.Point(331, 84);
-            this.lbl_to.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_to.Location = new System.Drawing.Point(662, 162);
+            this.lbl_to.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_to.Name = "lbl_to";
-            this.lbl_to.Size = new System.Drawing.Size(33, 13);
+            this.lbl_to.Size = new System.Drawing.Size(62, 25);
             this.lbl_to.TabIndex = 3;
             this.lbl_to.Text = "Nach";
             // 
-            // btn_showconnection
+            // btn_searchconnection
             // 
-            this.btn_showconnection.BackColor = System.Drawing.Color.Red;
-            this.btn_showconnection.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btn_showconnection.ForeColor = System.Drawing.Color.White;
-            this.btn_showconnection.Location = new System.Drawing.Point(334, 145);
-            this.btn_showconnection.Name = "btn_showconnection";
-            this.btn_showconnection.Size = new System.Drawing.Size(188, 34);
-            this.btn_showconnection.TabIndex = 8;
-            this.btn_showconnection.Text = "Verbindung suchen -->";
-            this.btn_showconnection.UseVisualStyleBackColor = false;
-            this.btn_showconnection.Click += new System.EventHandler(this.btn_showconnection_Click);
+            this.btn_searchconnection.BackColor = System.Drawing.Color.Red;
+            this.btn_searchconnection.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btn_searchconnection.ForeColor = System.Drawing.Color.White;
+            this.btn_searchconnection.Location = new System.Drawing.Point(668, 279);
+            this.btn_searchconnection.Margin = new System.Windows.Forms.Padding(6);
+            this.btn_searchconnection.Name = "btn_searchconnection";
+            this.btn_searchconnection.Size = new System.Drawing.Size(376, 65);
+            this.btn_searchconnection.TabIndex = 8;
+            this.btn_searchconnection.Text = "Verbindung suchen -->";
+            this.btn_searchconnection.UseVisualStyleBackColor = false;
+            this.btn_searchconnection.Click += new System.EventHandler(this.btn_searchconnection_Click);
             // 
             // btn_showstationfrom
             // 
-            this.btn_showstationfrom.Location = new System.Drawing.Point(204, 99);
+            this.btn_showstationfrom.Location = new System.Drawing.Point(408, 190);
+            this.btn_showstationfrom.Margin = new System.Windows.Forms.Padding(6);
             this.btn_showstationfrom.Name = "btn_showstationfrom";
-            this.btn_showstationfrom.Size = new System.Drawing.Size(49, 21);
+            this.btn_showstationfrom.Size = new System.Drawing.Size(98, 40);
             this.btn_showstationfrom.TabIndex = 9;
             this.btn_showstationfrom.Text = "Suche\r\n";
             this.btn_showstationfrom.UseVisualStyleBackColor = true;
@@ -103,9 +109,10 @@
             // 
             // btn_showstationto
             // 
-            this.btn_showstationto.Location = new System.Drawing.Point(527, 99);
+            this.btn_showstationto.Location = new System.Drawing.Point(1054, 190);
+            this.btn_showstationto.Margin = new System.Windows.Forms.Padding(6);
             this.btn_showstationto.Name = "btn_showstationto";
-            this.btn_showstationto.Size = new System.Drawing.Size(49, 21);
+            this.btn_showstationto.Size = new System.Drawing.Size(98, 40);
             this.btn_showstationto.TabIndex = 10;
             this.btn_showstationto.Text = "Suche\r\n";
             this.btn_showstationto.UseVisualStyleBackColor = true;
@@ -115,39 +122,71 @@
             // 
             this.lbl_SBFAHRPLAN.AutoSize = true;
             this.lbl_SBFAHRPLAN.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.lbl_SBFAHRPLAN.Location = new System.Drawing.Point(176, 32);
+            this.lbl_SBFAHRPLAN.Location = new System.Drawing.Point(352, 62);
+            this.lbl_SBFAHRPLAN.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbl_SBFAHRPLAN.Name = "lbl_SBFAHRPLAN";
-            this.lbl_SBFAHRPLAN.Size = new System.Drawing.Size(233, 31);
+            this.lbl_SBFAHRPLAN.Size = new System.Drawing.Size(464, 63);
             this.lbl_SBFAHRPLAN.TabIndex = 11;
             this.lbl_SBFAHRPLAN.Text = "Der SBB Fahrplan";
             // 
-            // lbo_connections
+            // dgV_connections
             // 
-            this.lbo_connections.FormattingEnabled = true;
-            this.lbo_connections.Location = new System.Drawing.Point(11, 192);
-            this.lbo_connections.Name = "lbo_connections";
-            this.lbo_connections.Size = new System.Drawing.Size(565, 199);
-            this.lbo_connections.TabIndex = 12;
-            this.lbo_connections.Visible = false;
+            this.dgV_connections.AllowUserToAddRows = false;
+            this.dgV_connections.AllowUserToDeleteRows = false;
+            this.dgV_connections.AllowUserToOrderColumns = true;
+            this.dgV_connections.AllowUserToResizeColumns = false;
+            this.dgV_connections.AllowUserToResizeRows = false;
+            this.dgV_connections.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgV_connections.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgV_connections.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgV_column_from,
+            this.dgV_column_to,
+            this.dgV_column_duration});
+            this.dgV_connections.Location = new System.Drawing.Point(22, 353);
+            this.dgV_connections.Name = "dgV_connections";
+            this.dgV_connections.ReadOnly = true;
+            this.dgV_connections.RowTemplate.Height = 33;
+            this.dgV_connections.Size = new System.Drawing.Size(1130, 294);
+            this.dgV_connections.TabIndex = 12;
+            this.dgV_connections.Visible = false;
+            // 
+            // dgV_column_from
+            // 
+            this.dgV_column_from.HeaderText = "Von";
+            this.dgV_column_from.Name = "dgV_column_from";
+            this.dgV_column_from.ReadOnly = true;
+            // 
+            // dgV_column_to
+            // 
+            this.dgV_column_to.HeaderText = "Nach";
+            this.dgV_column_to.Name = "dgV_column_to";
+            this.dgV_column_to.ReadOnly = true;
+            // 
+            // dgV_column_duration
+            // 
+            this.dgV_column_duration.HeaderText = "Dauer";
+            this.dgV_column_duration.Name = "dgV_column_duration";
+            this.dgV_column_duration.ReadOnly = true;
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(590, 416);
-            this.Controls.Add(this.lbo_connections);
+            this.ClientSize = new System.Drawing.Size(1180, 659);
+            this.Controls.Add(this.dgV_connections);
             this.Controls.Add(this.lbl_SBFAHRPLAN);
             this.Controls.Add(this.btn_showstationto);
             this.Controls.Add(this.btn_showstationfrom);
-            this.Controls.Add(this.btn_showconnection);
+            this.Controls.Add(this.btn_searchconnection);
             this.Controls.Add(this.lbl_to);
             this.Controls.Add(this.lbl_from);
             this.Controls.Add(this.cbo_to);
             this.Controls.Add(this.cbo_from);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormMain";
             this.Text = "Fahrplan";
+            ((System.ComponentModel.ISupportInitialize)(this.dgV_connections)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -159,11 +198,14 @@
         private System.Windows.Forms.ComboBox cbo_to;
         private System.Windows.Forms.Label lbl_from;
         private System.Windows.Forms.Label lbl_to;
-        private System.Windows.Forms.Button btn_showconnection;
+        private System.Windows.Forms.Button btn_searchconnection;
         private System.Windows.Forms.Button btn_showstationfrom;
         private System.Windows.Forms.Button btn_showstationto;
         private System.Windows.Forms.Label lbl_SBFAHRPLAN;
-        private System.Windows.Forms.ListBox lbo_connections;
+        private System.Windows.Forms.DataGridView dgV_connections;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgV_column_from;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgV_column_to;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgV_column_duration;
     }
 }
 
