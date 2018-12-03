@@ -13,12 +13,16 @@ namespace user_interface
 {
     public partial class FormMain : Form
     {
+        Transport transportAPI = new Transport();
+        private Stations departureAPI;
+        private Stations arrivalAPI;
+
         public FormMain()
         {
             InitializeComponent();
         }
        
-        Transport transportAPI = new Transport();
+        
 
         private void btn_searchconnection_Click(object sender, EventArgs e)
         {
@@ -38,34 +42,6 @@ namespace user_interface
                 dgV_Connections.Rows.Add(departureTime, connection.From.Station.Name, connection.To.Station.Name, duration, "Gleis " + connection.From.Platform);
             }
         }
-
-        //private void cbo_from_TextChanged(object sender, EventArgs e)
-        //{
-        //    AutoCompleteStringCollection collection = new AutoCompleteStringCollection();
-        //    Transport transportAPI = new Transport();
-        //    Stations stationsAPI = new Stations();
-
-        //    collection.Clear();
-        //    cbo_from.DroppedDown = true;
-        //    stationsAPI = transportAPI.GetStations(cbo_from.Text);
-
-        //    foreach (var station in stationsAPI.StationList)
-        //    {
-        //        collection.Add(station.Name);
-        //    }
-
-        //    Cursor.Current = Cursors.WaitCursor;
-        //    Application.DoEvents();
-
-        // cbo_from.AutoCompleteCustomSource = collection;
-        //}
-
-        //public Stations StationList(string input)
-        //{
-
-        //    Stations stations = transportAPI.GetStations(input);
-        //    return stations;
-        //}
 
         private void showStation(ComboBox comboBox)
         {
@@ -103,8 +79,6 @@ namespace user_interface
             StationBoardRoot stationBoardAPI = new StationBoardRoot();
             Stations stations = new Stations();
 
-            //string id = 
-
             stationBoardAPI = transportAPI.GetStationBoard(cbo_From.Text, GetStationID(cbo_From.Text));
 
             foreach (var stationBoard in stationBoardAPI.Entries)
@@ -119,6 +93,45 @@ namespace user_interface
             {
                 btn_SearchConnection.PerformClick();
             }
+        }
+        private void UInput(ComboBox Input, ref Stations stations)
+        {
+            if(Input.Text != string.Empty)
+            {
+                var text = Input.Text;
+                var newStations = transportAPI.GetStations(Input.Text);
+                if (newStations.StationList.Count > 0)
+                {
+                    stations = newStations;
+                    Input.DataSource = newStations.StationList;
+                    Input.DroppedDown = true;
+                    Input.Text = text;
+                    Input.SelectionStart = text.Length;
+                }
+            }
+        }
+
+        private void showAutocompletion(ComboBox combobox, Stations stations)
+        {
+            stations = new Stations();
+            stations.StationList = new List<Station>();
+
+            combobox.DataSource = stations.StationList;
+            combobox.DisplayMember = "name";
+
+            ComboBox Input = combobox;
+            UInput(Input, ref stations);
+
+            Cursor.Current = Cursors.Default;
+        }
+        private void cbo_From_TextUpdate(object sender, EventArgs e)
+        {
+            showAutocompletion(cbo_From, departureAPI);
+        }
+
+        private void cbo_To_TextUpdate(object sender, EventArgs e)
+        {
+            showAutocompletion(cbo_To, arrivalAPI);
         }
     }
 }

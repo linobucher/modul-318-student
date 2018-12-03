@@ -38,18 +38,19 @@
             this.btn_ShowStationTo = new System.Windows.Forms.Button();
             this.lbl_SBBFahrplan = new System.Windows.Forms.Label();
             this.dgV_Connections = new System.Windows.Forms.DataGridView();
-            this.btn_ShowStationTable = new System.Windows.Forms.Button();
             this.dgV_column_departure = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgV_column_from = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgV_column_to = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgV_column_duration = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbo_column_platform = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_ShowStationTable = new System.Windows.Forms.Button();
             this.dgV_StationBoard = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_SendMail = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgV_Connections)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgV_StationBoard)).BeginInit();
             this.SuspendLayout();
@@ -62,6 +63,7 @@
             this.cbo_From.Name = "cbo_From";
             this.cbo_From.Size = new System.Drawing.Size(372, 33);
             this.cbo_From.TabIndex = 0;
+            this.cbo_From.TextUpdate += new System.EventHandler(this.cbo_From_TextUpdate);
             this.cbo_From.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbo_stations_KeyDown);
             // 
             // cbo_To
@@ -72,6 +74,7 @@
             this.cbo_To.Name = "cbo_To";
             this.cbo_To.Size = new System.Drawing.Size(372, 33);
             this.cbo_To.TabIndex = 2;
+            this.cbo_To.TextUpdate += new System.EventHandler(this.cbo_To_TextUpdate);
             this.cbo_To.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbo_stations_KeyDown);
             // 
             // lbl_From
@@ -167,21 +170,6 @@
             this.dgV_Connections.TabStop = false;
             this.dgV_Connections.Visible = false;
             // 
-            // btn_ShowStationTable
-            // 
-            this.btn_ShowStationTable.BackColor = System.Drawing.Color.Maroon;
-            this.btn_ShowStationTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btn_ShowStationTable.ForeColor = System.Drawing.Color.White;
-            this.btn_ShowStationTable.Location = new System.Drawing.Point(22, 233);
-            this.btn_ShowStationTable.Margin = new System.Windows.Forms.Padding(6);
-            this.btn_ShowStationTable.Name = "btn_ShowStationTable";
-            this.btn_ShowStationTable.Size = new System.Drawing.Size(372, 69);
-            this.btn_ShowStationTable.TabIndex = 0;
-            this.btn_ShowStationTable.TabStop = false;
-            this.btn_ShowStationTable.Text = "Station Table anzeigen -->";
-            this.btn_ShowStationTable.UseVisualStyleBackColor = false;
-            this.btn_ShowStationTable.Click += new System.EventHandler(this.btn_ShowStationTable_Click);
-            // 
             // dgV_column_departure
             // 
             this.dgV_column_departure.HeaderText = "Abfahrt";
@@ -211,6 +199,21 @@
             this.cbo_column_platform.HeaderText = "Gleis";
             this.cbo_column_platform.Name = "cbo_column_platform";
             this.cbo_column_platform.ReadOnly = true;
+            // 
+            // btn_ShowStationTable
+            // 
+            this.btn_ShowStationTable.BackColor = System.Drawing.Color.Maroon;
+            this.btn_ShowStationTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btn_ShowStationTable.ForeColor = System.Drawing.Color.White;
+            this.btn_ShowStationTable.Location = new System.Drawing.Point(22, 233);
+            this.btn_ShowStationTable.Margin = new System.Windows.Forms.Padding(6);
+            this.btn_ShowStationTable.Name = "btn_ShowStationTable";
+            this.btn_ShowStationTable.Size = new System.Drawing.Size(372, 69);
+            this.btn_ShowStationTable.TabIndex = 0;
+            this.btn_ShowStationTable.TabStop = false;
+            this.btn_ShowStationTable.Text = "Station Table anzeigen -->";
+            this.btn_ShowStationTable.UseVisualStyleBackColor = false;
+            this.btn_ShowStationTable.Click += new System.EventHandler(this.btn_ShowStationTable_Click);
             // 
             // dgV_StationBoard
             // 
@@ -272,11 +275,21 @@
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
             this.dataGridViewTextBoxColumn5.Width = 55;
             // 
+            // btn_SendMail
+            // 
+            this.btn_SendMail.Location = new System.Drawing.Point(1016, 670);
+            this.btn_SendMail.Name = "btn_SendMail";
+            this.btn_SendMail.Size = new System.Drawing.Size(136, 36);
+            this.btn_SendMail.TabIndex = 13;
+            this.btn_SendMail.Text = "Teilen ↑";
+            this.btn_SendMail.UseVisualStyleBackColor = true;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1180, 659);
+            this.ClientSize = new System.Drawing.Size(1184, 737);
+            this.Controls.Add(this.btn_SendMail);
             this.Controls.Add(this.dgV_StationBoard);
             this.Controls.Add(this.btn_ShowStationTable);
             this.Controls.Add(this.dgV_Connections);
@@ -291,8 +304,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1206, 730);
-            this.MinimumSize = new System.Drawing.Size(1206, 730);
+            this.MaximumSize = new System.Drawing.Size(1210, 808);
+            this.MinimumSize = new System.Drawing.Size(1210, 808);
             this.Name = "FormMain";
             this.Text = "Fahrplan";
             ((System.ComponentModel.ISupportInitialize)(this.dgV_Connections)).EndInit();
@@ -325,6 +338,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.Button btn_SendMail;
     }
 }
 
