@@ -23,7 +23,9 @@ namespace user_interface
         private void btn_searchconnection_Click(object sender, EventArgs e)
         {
             dgV_Connections.Rows.Clear();
+            dgV_StationBoard.Visible = false;
             dgV_Connections.Visible = true;
+
             
             Connections connectionsAPI = new Connections();
             ConnectionPoint connectionPointAPI = new ConnectionPoint();
@@ -95,6 +97,7 @@ namespace user_interface
         private void btn_ShowStationTable_Click(object sender, EventArgs e)
         {
             dgV_StationBoard.Rows.Clear();
+            dgV_Connections.Visible = false;
             dgV_StationBoard.Visible = true;
 
             StationBoardRoot stationBoardAPI = new StationBoardRoot();
