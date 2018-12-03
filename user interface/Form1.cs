@@ -22,16 +22,18 @@ namespace user_interface
 
         public void btn_searchconnection_Click(object sender, EventArgs e)
         {
-            dgV_connections.Rows.Clear();
-            dgV_connections.Visible = true;
+            dgV_Connections.Rows.Clear();
+            dgV_Connections.Visible = true;
             
             Connections connectionsAPI = new Connections();
             ConnectionPoint connectionPointAPI = new ConnectionPoint();
 
-            connectionsAPI = transportAPI.GetConnections(cbo_from.Text, cbo_to.Text);
+            connectionsAPI = transportAPI.GetConnections(cbo_From.Text, cbo_To.Text);
             foreach(var connection in connectionsAPI.ConnectionList)
             {
-                dgV_connections.Rows.Add(connection.From.Departure, connection.From.Station.Name, connection.To.Station.Name, connection.Duration, connection.From.Platform);
+                string departureTime = Convert.ToDateTime(connection.From.Departure).ToString().Substring(0,16);
+                string duration = (connection.Duration).ToString().Substring(3, 5);
+                dgV_Connections.Rows.Add(departureTime, connection.From.Station.Name, connection.To.Station.Name, duration, "Gleis " + connection.From.Platform);
             }
         }
 
@@ -56,25 +58,48 @@ namespace user_interface
         //    cbo_from.AutoCompleteCustomSource = collection;
         //}
 
-        public Stations StationList(string input)
-        {
+        //public Stations StationList(string input)
+        //{
 
-            Stations stations = transportAPI.GetStations(input);
-            return stations;
+        //    Stations stations = transportAPI.GetStations(input);
+        //    return stations;
+        //}
+
+        private void showStation(ComboBox comboBox)
+        {
+            Stations StationList(string input)
+            {
+                Stations stations = transportAPI.GetStations(input);
+                return stations;
+            }
+            comboBox.DroppedDown = true;
+            comboBox.DataSource = StationList(comboBox.Text).StationList;
+            comboBox.DisplayMember = "name";
         }
 
         private void btn_showstationfrom_Click(object sender, EventArgs e)
         {
-            cbo_from.DroppedDown = true;
-            cbo_from.DataSource = StationList(cbo_from.Text).StationList;
-            cbo_from.DisplayMember = "name";
+            showStation(cbo_From);
         }
 
         private void btn_showstationto_Click(object sender, EventArgs e)
         {
-            cbo_to.DroppedDown = true;
-            cbo_to.DataSource = StationList(cbo_to.Text).StationList;
-            cbo_to.DisplayMember = "name";
+            showStation(cbo_To);
+        }
+
+        private void btn_ShowStationTable_Click(object sender, EventArgs e)
+        {
+            //dgV_Connections.Rows.Clear();
+            //dgV_Connections.Visible = true;
+
+            //StationBoardRoot stationBoardAPI = new StationBoardRoot();
+            //Stations stations = new Stations();
+
+            //stationBoardAPI = transportAPI.GetStationBoard(cbo_From.Text, cbo_From);
+            //foreach (var stationBoard in stationBoardAPI.Entries)
+            //{
+            //    dgV_Connections.Rows.Add(stationBoard.Name ,stationBoard.To);
+            //}
         }
     }
 }

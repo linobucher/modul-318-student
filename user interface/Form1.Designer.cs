@@ -29,131 +29,136 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            this.cbo_from = new System.Windows.Forms.ComboBox();
-            this.cbo_to = new System.Windows.Forms.ComboBox();
-            this.lbl_from = new System.Windows.Forms.Label();
-            this.lbl_to = new System.Windows.Forms.Label();
-            this.btn_searchconnection = new System.Windows.Forms.Button();
-            this.btn_showstationfrom = new System.Windows.Forms.Button();
-            this.btn_showstationto = new System.Windows.Forms.Button();
-            this.lbl_SBFAHRPLAN = new System.Windows.Forms.Label();
-            this.dgV_connections = new System.Windows.Forms.DataGridView();
+            this.cbo_From = new System.Windows.Forms.ComboBox();
+            this.cbo_To = new System.Windows.Forms.ComboBox();
+            this.lbl_From = new System.Windows.Forms.Label();
+            this.lbl_To = new System.Windows.Forms.Label();
+            this.btn_SearchConnection = new System.Windows.Forms.Button();
+            this.btn_ShowStationFrom = new System.Windows.Forms.Button();
+            this.btn_ShowStationTo = new System.Windows.Forms.Button();
+            this.lbl_SBBFahrplan = new System.Windows.Forms.Label();
+            this.dgV_Connections = new System.Windows.Forms.DataGridView();
             this.dgV_column_departure = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgV_column_from = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgV_column_to = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgV_column_duration = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbo_column_platform = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgV_connections)).BeginInit();
+            this.btn_ShowStationTable = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgV_Connections)).BeginInit();
             this.SuspendLayout();
             // 
-            // cbo_from
+            // cbo_From
             // 
-            this.cbo_from.FormattingEnabled = true;
-            this.cbo_from.Location = new System.Drawing.Point(22, 190);
-            this.cbo_from.Margin = new System.Windows.Forms.Padding(4);
-            this.cbo_from.Name = "cbo_from";
-            this.cbo_from.Size = new System.Drawing.Size(372, 33);
-            this.cbo_from.TabIndex = 0;
+            this.cbo_From.FormattingEnabled = true;
+            this.cbo_From.Location = new System.Drawing.Point(22, 190);
+            this.cbo_From.Margin = new System.Windows.Forms.Padding(4);
+            this.cbo_From.Name = "cbo_From";
+            this.cbo_From.Size = new System.Drawing.Size(372, 33);
+            this.cbo_From.TabIndex = 1;
             // 
-            // cbo_to
+            // cbo_To
             // 
-            this.cbo_to.FormattingEnabled = true;
-            this.cbo_to.Location = new System.Drawing.Point(668, 190);
-            this.cbo_to.Margin = new System.Windows.Forms.Padding(4);
-            this.cbo_to.Name = "cbo_to";
-            this.cbo_to.Size = new System.Drawing.Size(372, 33);
-            this.cbo_to.TabIndex = 1;
+            this.cbo_To.FormattingEnabled = true;
+            this.cbo_To.Location = new System.Drawing.Point(668, 190);
+            this.cbo_To.Margin = new System.Windows.Forms.Padding(4);
+            this.cbo_To.Name = "cbo_To";
+            this.cbo_To.Size = new System.Drawing.Size(372, 33);
+            this.cbo_To.TabIndex = 2;
             // 
-            // lbl_from
+            // lbl_From
             // 
-            this.lbl_from.AutoSize = true;
-            this.lbl_from.Location = new System.Drawing.Point(16, 162);
-            this.lbl_from.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_from.Name = "lbl_from";
-            this.lbl_from.Size = new System.Drawing.Size(50, 25);
-            this.lbl_from.TabIndex = 2;
-            this.lbl_from.Text = "Von";
+            this.lbl_From.AutoSize = true;
+            this.lbl_From.Location = new System.Drawing.Point(16, 162);
+            this.lbl_From.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_From.Name = "lbl_From";
+            this.lbl_From.Size = new System.Drawing.Size(50, 25);
+            this.lbl_From.TabIndex = 2;
+            this.lbl_From.Text = "Von";
             // 
-            // lbl_to
+            // lbl_To
             // 
-            this.lbl_to.AutoSize = true;
-            this.lbl_to.Location = new System.Drawing.Point(662, 162);
-            this.lbl_to.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_to.Name = "lbl_to";
-            this.lbl_to.Size = new System.Drawing.Size(62, 25);
-            this.lbl_to.TabIndex = 3;
-            this.lbl_to.Text = "Nach";
+            this.lbl_To.AutoSize = true;
+            this.lbl_To.Location = new System.Drawing.Point(662, 162);
+            this.lbl_To.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_To.Name = "lbl_To";
+            this.lbl_To.Size = new System.Drawing.Size(62, 25);
+            this.lbl_To.TabIndex = 3;
+            this.lbl_To.Text = "Nach";
             // 
-            // btn_searchconnection
+            // btn_SearchConnection
             // 
-            this.btn_searchconnection.BackColor = System.Drawing.Color.Red;
-            this.btn_searchconnection.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btn_searchconnection.ForeColor = System.Drawing.Color.White;
-            this.btn_searchconnection.Location = new System.Drawing.Point(668, 233);
-            this.btn_searchconnection.Margin = new System.Windows.Forms.Padding(6);
-            this.btn_searchconnection.Name = "btn_searchconnection";
-            this.btn_searchconnection.Size = new System.Drawing.Size(372, 69);
-            this.btn_searchconnection.TabIndex = 8;
-            this.btn_searchconnection.Text = "Verbindung suchen -->";
-            this.btn_searchconnection.UseVisualStyleBackColor = false;
-            this.btn_searchconnection.Click += new System.EventHandler(this.btn_searchconnection_Click);
+            this.btn_SearchConnection.BackColor = System.Drawing.Color.Red;
+            this.btn_SearchConnection.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btn_SearchConnection.ForeColor = System.Drawing.Color.White;
+            this.btn_SearchConnection.Location = new System.Drawing.Point(668, 233);
+            this.btn_SearchConnection.Margin = new System.Windows.Forms.Padding(6);
+            this.btn_SearchConnection.Name = "btn_SearchConnection";
+            this.btn_SearchConnection.Size = new System.Drawing.Size(372, 69);
+            this.btn_SearchConnection.TabIndex = 0;
+            this.btn_SearchConnection.TabStop = false;
+            this.btn_SearchConnection.Text = "Verbindung suchen -->";
+            this.btn_SearchConnection.UseVisualStyleBackColor = false;
+            this.btn_SearchConnection.Click += new System.EventHandler(this.btn_searchconnection_Click);
             // 
-            // btn_showstationfrom
+            // btn_ShowStationFrom
             // 
-            this.btn_showstationfrom.Location = new System.Drawing.Point(408, 190);
-            this.btn_showstationfrom.Margin = new System.Windows.Forms.Padding(6);
-            this.btn_showstationfrom.Name = "btn_showstationfrom";
-            this.btn_showstationfrom.Size = new System.Drawing.Size(98, 40);
-            this.btn_showstationfrom.TabIndex = 9;
-            this.btn_showstationfrom.Text = "Suche\r\n";
-            this.btn_showstationfrom.UseVisualStyleBackColor = true;
-            this.btn_showstationfrom.Click += new System.EventHandler(this.btn_showstationfrom_Click);
+            this.btn_ShowStationFrom.Location = new System.Drawing.Point(408, 190);
+            this.btn_ShowStationFrom.Margin = new System.Windows.Forms.Padding(6);
+            this.btn_ShowStationFrom.Name = "btn_ShowStationFrom";
+            this.btn_ShowStationFrom.Size = new System.Drawing.Size(98, 40);
+            this.btn_ShowStationFrom.TabIndex = 0;
+            this.btn_ShowStationFrom.TabStop = false;
+            this.btn_ShowStationFrom.Text = "Suche\r\n";
+            this.btn_ShowStationFrom.UseVisualStyleBackColor = true;
+            this.btn_ShowStationFrom.Click += new System.EventHandler(this.btn_showstationfrom_Click);
             // 
-            // btn_showstationto
+            // btn_ShowStationTo
             // 
-            this.btn_showstationto.Location = new System.Drawing.Point(1054, 190);
-            this.btn_showstationto.Margin = new System.Windows.Forms.Padding(6);
-            this.btn_showstationto.Name = "btn_showstationto";
-            this.btn_showstationto.Size = new System.Drawing.Size(98, 40);
-            this.btn_showstationto.TabIndex = 10;
-            this.btn_showstationto.Text = "Suche\r\n";
-            this.btn_showstationto.UseVisualStyleBackColor = true;
-            this.btn_showstationto.Click += new System.EventHandler(this.btn_showstationto_Click);
+            this.btn_ShowStationTo.Location = new System.Drawing.Point(1054, 190);
+            this.btn_ShowStationTo.Margin = new System.Windows.Forms.Padding(6);
+            this.btn_ShowStationTo.Name = "btn_ShowStationTo";
+            this.btn_ShowStationTo.Size = new System.Drawing.Size(98, 40);
+            this.btn_ShowStationTo.TabIndex = 0;
+            this.btn_ShowStationTo.TabStop = false;
+            this.btn_ShowStationTo.Text = "Suche\r\n";
+            this.btn_ShowStationTo.UseVisualStyleBackColor = true;
+            this.btn_ShowStationTo.Click += new System.EventHandler(this.btn_showstationto_Click);
             // 
-            // lbl_SBFAHRPLAN
+            // lbl_SBBFahrplan
             // 
-            this.lbl_SBFAHRPLAN.AutoSize = true;
-            this.lbl_SBFAHRPLAN.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.lbl_SBFAHRPLAN.Location = new System.Drawing.Point(352, 62);
-            this.lbl_SBFAHRPLAN.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.lbl_SBFAHRPLAN.Name = "lbl_SBFAHRPLAN";
-            this.lbl_SBFAHRPLAN.Size = new System.Drawing.Size(464, 63);
-            this.lbl_SBFAHRPLAN.TabIndex = 11;
-            this.lbl_SBFAHRPLAN.Text = "Der SBB Fahrplan";
+            this.lbl_SBBFahrplan.AutoSize = true;
+            this.lbl_SBBFahrplan.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.lbl_SBBFahrplan.Location = new System.Drawing.Point(352, 62);
+            this.lbl_SBBFahrplan.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lbl_SBBFahrplan.Name = "lbl_SBBFahrplan";
+            this.lbl_SBBFahrplan.Size = new System.Drawing.Size(464, 63);
+            this.lbl_SBBFahrplan.TabIndex = 11;
+            this.lbl_SBBFahrplan.Text = "Der SBB Fahrplan";
             // 
-            // dgV_connections
+            // dgV_Connections
             // 
-            this.dgV_connections.AllowUserToAddRows = false;
-            this.dgV_connections.AllowUserToDeleteRows = false;
-            this.dgV_connections.AllowUserToOrderColumns = true;
-            this.dgV_connections.AllowUserToResizeColumns = false;
-            this.dgV_connections.AllowUserToResizeRows = false;
-            this.dgV_connections.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgV_connections.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgV_connections.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgV_Connections.AllowUserToAddRows = false;
+            this.dgV_Connections.AllowUserToDeleteRows = false;
+            this.dgV_Connections.AllowUserToOrderColumns = true;
+            this.dgV_Connections.AllowUserToResizeColumns = false;
+            this.dgV_Connections.AllowUserToResizeRows = false;
+            this.dgV_Connections.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgV_Connections.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgV_Connections.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgV_column_departure,
             this.dgV_column_from,
             this.dgV_column_to,
             this.dgV_column_duration,
             this.cbo_column_platform});
-            this.dgV_connections.Location = new System.Drawing.Point(22, 353);
-            this.dgV_connections.Name = "dgV_connections";
-            this.dgV_connections.ReadOnly = true;
-            this.dgV_connections.RowTemplate.Height = 33;
-            this.dgV_connections.Size = new System.Drawing.Size(1130, 294);
-            this.dgV_connections.TabIndex = 12;
-            this.dgV_connections.Visible = false;
+            this.dgV_Connections.GridColor = System.Drawing.SystemColors.Control;
+            this.dgV_Connections.Location = new System.Drawing.Point(22, 311);
+            this.dgV_Connections.Name = "dgV_Connections";
+            this.dgV_Connections.ReadOnly = true;
+            this.dgV_Connections.RowTemplate.Height = 33;
+            this.dgV_Connections.Size = new System.Drawing.Size(1130, 336);
+            this.dgV_Connections.TabIndex = 0;
+            this.dgV_Connections.TabStop = false;
+            this.dgV_Connections.Visible = false;
             // 
             // dgV_column_departure
             // 
@@ -185,39 +190,41 @@
             this.cbo_column_platform.Name = "cbo_column_platform";
             this.cbo_column_platform.ReadOnly = true;
             // 
-            // button1
+            // btn_ShowStationTable
             // 
-            this.button1.BackColor = System.Drawing.Color.Maroon;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(22, 233);
-            this.button1.Margin = new System.Windows.Forms.Padding(6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(372, 69);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Station Table anzeigen -->";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btn_ShowStationTable.BackColor = System.Drawing.Color.Maroon;
+            this.btn_ShowStationTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btn_ShowStationTable.ForeColor = System.Drawing.Color.White;
+            this.btn_ShowStationTable.Location = new System.Drawing.Point(22, 233);
+            this.btn_ShowStationTable.Margin = new System.Windows.Forms.Padding(6);
+            this.btn_ShowStationTable.Name = "btn_ShowStationTable";
+            this.btn_ShowStationTable.Size = new System.Drawing.Size(372, 69);
+            this.btn_ShowStationTable.TabIndex = 0;
+            this.btn_ShowStationTable.TabStop = false;
+            this.btn_ShowStationTable.Text = "Station Table anzeigen -->";
+            this.btn_ShowStationTable.UseVisualStyleBackColor = false;
+            this.btn_ShowStationTable.Click += new System.EventHandler(this.btn_ShowStationTable_Click);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1180, 659);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dgV_connections);
-            this.Controls.Add(this.lbl_SBFAHRPLAN);
-            this.Controls.Add(this.btn_showstationto);
-            this.Controls.Add(this.btn_showstationfrom);
-            this.Controls.Add(this.btn_searchconnection);
-            this.Controls.Add(this.lbl_to);
-            this.Controls.Add(this.lbl_from);
-            this.Controls.Add(this.cbo_to);
-            this.Controls.Add(this.cbo_from);
+            this.Controls.Add(this.btn_ShowStationTable);
+            this.Controls.Add(this.dgV_Connections);
+            this.Controls.Add(this.lbl_SBBFahrplan);
+            this.Controls.Add(this.btn_ShowStationTo);
+            this.Controls.Add(this.btn_ShowStationFrom);
+            this.Controls.Add(this.btn_SearchConnection);
+            this.Controls.Add(this.lbl_To);
+            this.Controls.Add(this.lbl_From);
+            this.Controls.Add(this.cbo_To);
+            this.Controls.Add(this.cbo_From);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormMain";
             this.Text = "Fahrplan";
-            ((System.ComponentModel.ISupportInitialize)(this.dgV_connections)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgV_Connections)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -225,21 +232,21 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox cbo_from;
-        private System.Windows.Forms.ComboBox cbo_to;
-        private System.Windows.Forms.Label lbl_from;
-        private System.Windows.Forms.Label lbl_to;
-        private System.Windows.Forms.Button btn_searchconnection;
-        private System.Windows.Forms.Button btn_showstationfrom;
-        private System.Windows.Forms.Button btn_showstationto;
-        private System.Windows.Forms.Label lbl_SBFAHRPLAN;
-        private System.Windows.Forms.DataGridView dgV_connections;
+        private System.Windows.Forms.ComboBox cbo_From;
+        private System.Windows.Forms.ComboBox cbo_To;
+        private System.Windows.Forms.Label lbl_From;
+        private System.Windows.Forms.Label lbl_To;
+        private System.Windows.Forms.Button btn_SearchConnection;
+        private System.Windows.Forms.Button btn_ShowStationFrom;
+        private System.Windows.Forms.Button btn_ShowStationTo;
+        private System.Windows.Forms.Label lbl_SBBFahrplan;
+        private System.Windows.Forms.DataGridView dgV_Connections;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgV_column_departure;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgV_column_from;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgV_column_to;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgV_column_duration;
         private System.Windows.Forms.DataGridViewTextBoxColumn cbo_column_platform;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_ShowStationTable;
     }
 }
 
