@@ -38,13 +38,20 @@
             this.btn_ShowStationTo = new System.Windows.Forms.Button();
             this.lbl_SBBFahrplan = new System.Windows.Forms.Label();
             this.dgV_Connections = new System.Windows.Forms.DataGridView();
+            this.btn_ShowStationTable = new System.Windows.Forms.Button();
             this.dgV_column_departure = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgV_column_from = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgV_column_to = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgV_column_duration = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbo_column_platform = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_ShowStationTable = new System.Windows.Forms.Button();
+            this.dgV_StationBoard = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgV_Connections)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgV_StationBoard)).BeginInit();
             this.SuspendLayout();
             // 
             // cbo_From
@@ -54,7 +61,8 @@
             this.cbo_From.Margin = new System.Windows.Forms.Padding(4);
             this.cbo_From.Name = "cbo_From";
             this.cbo_From.Size = new System.Drawing.Size(372, 33);
-            this.cbo_From.TabIndex = 1;
+            this.cbo_From.TabIndex = 0;
+            this.cbo_From.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbo_stations_KeyDown);
             // 
             // cbo_To
             // 
@@ -64,6 +72,7 @@
             this.cbo_To.Name = "cbo_To";
             this.cbo_To.Size = new System.Drawing.Size(372, 33);
             this.cbo_To.TabIndex = 2;
+            this.cbo_To.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbo_stations_KeyDown);
             // 
             // lbl_From
             // 
@@ -106,8 +115,7 @@
             this.btn_ShowStationFrom.Margin = new System.Windows.Forms.Padding(6);
             this.btn_ShowStationFrom.Name = "btn_ShowStationFrom";
             this.btn_ShowStationFrom.Size = new System.Drawing.Size(98, 40);
-            this.btn_ShowStationFrom.TabIndex = 0;
-            this.btn_ShowStationFrom.TabStop = false;
+            this.btn_ShowStationFrom.TabIndex = 1;
             this.btn_ShowStationFrom.Text = "Suche\r\n";
             this.btn_ShowStationFrom.UseVisualStyleBackColor = true;
             this.btn_ShowStationFrom.Click += new System.EventHandler(this.btn_showstationfrom_Click);
@@ -118,8 +126,7 @@
             this.btn_ShowStationTo.Margin = new System.Windows.Forms.Padding(6);
             this.btn_ShowStationTo.Name = "btn_ShowStationTo";
             this.btn_ShowStationTo.Size = new System.Drawing.Size(98, 40);
-            this.btn_ShowStationTo.TabIndex = 0;
-            this.btn_ShowStationTo.TabStop = false;
+            this.btn_ShowStationTo.TabIndex = 3;
             this.btn_ShowStationTo.Text = "Suche\r\n";
             this.btn_ShowStationTo.UseVisualStyleBackColor = true;
             this.btn_ShowStationTo.Click += new System.EventHandler(this.btn_showstationto_Click);
@@ -160,6 +167,21 @@
             this.dgV_Connections.TabStop = false;
             this.dgV_Connections.Visible = false;
             // 
+            // btn_ShowStationTable
+            // 
+            this.btn_ShowStationTable.BackColor = System.Drawing.Color.Maroon;
+            this.btn_ShowStationTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btn_ShowStationTable.ForeColor = System.Drawing.Color.White;
+            this.btn_ShowStationTable.Location = new System.Drawing.Point(22, 233);
+            this.btn_ShowStationTable.Margin = new System.Windows.Forms.Padding(6);
+            this.btn_ShowStationTable.Name = "btn_ShowStationTable";
+            this.btn_ShowStationTable.Size = new System.Drawing.Size(372, 69);
+            this.btn_ShowStationTable.TabIndex = 0;
+            this.btn_ShowStationTable.TabStop = false;
+            this.btn_ShowStationTable.Text = "Station Table anzeigen -->";
+            this.btn_ShowStationTable.UseVisualStyleBackColor = false;
+            this.btn_ShowStationTable.Click += new System.EventHandler(this.btn_ShowStationTable_Click);
+            // 
             // dgV_column_departure
             // 
             this.dgV_column_departure.HeaderText = "Abfahrt";
@@ -190,26 +212,72 @@
             this.cbo_column_platform.Name = "cbo_column_platform";
             this.cbo_column_platform.ReadOnly = true;
             // 
-            // btn_ShowStationTable
+            // dgV_StationBoard
             // 
-            this.btn_ShowStationTable.BackColor = System.Drawing.Color.Maroon;
-            this.btn_ShowStationTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btn_ShowStationTable.ForeColor = System.Drawing.Color.White;
-            this.btn_ShowStationTable.Location = new System.Drawing.Point(22, 233);
-            this.btn_ShowStationTable.Margin = new System.Windows.Forms.Padding(6);
-            this.btn_ShowStationTable.Name = "btn_ShowStationTable";
-            this.btn_ShowStationTable.Size = new System.Drawing.Size(372, 69);
-            this.btn_ShowStationTable.TabIndex = 0;
-            this.btn_ShowStationTable.TabStop = false;
-            this.btn_ShowStationTable.Text = "Station Table anzeigen -->";
-            this.btn_ShowStationTable.UseVisualStyleBackColor = false;
-            this.btn_ShowStationTable.Click += new System.EventHandler(this.btn_ShowStationTable_Click);
+            this.dgV_StationBoard.AllowUserToAddRows = false;
+            this.dgV_StationBoard.AllowUserToDeleteRows = false;
+            this.dgV_StationBoard.AllowUserToOrderColumns = true;
+            this.dgV_StationBoard.AllowUserToResizeColumns = false;
+            this.dgV_StationBoard.AllowUserToResizeRows = false;
+            this.dgV_StationBoard.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgV_StationBoard.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgV_StationBoard.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5});
+            this.dgV_StationBoard.GridColor = System.Drawing.SystemColors.Control;
+            this.dgV_StationBoard.Location = new System.Drawing.Point(21, 311);
+            this.dgV_StationBoard.Name = "dgV_StationBoard";
+            this.dgV_StationBoard.ReadOnly = true;
+            this.dgV_StationBoard.RowTemplate.Height = 33;
+            this.dgV_StationBoard.Size = new System.Drawing.Size(1130, 336);
+            this.dgV_StationBoard.TabIndex = 12;
+            this.dgV_StationBoard.TabStop = false;
+            this.dgV_StationBoard.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Abfahrt";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 120;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Von";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 130;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Nach";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 130;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 70;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Kategorie";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 55;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1180, 659);
+            this.Controls.Add(this.dgV_StationBoard);
             this.Controls.Add(this.btn_ShowStationTable);
             this.Controls.Add(this.dgV_Connections);
             this.Controls.Add(this.lbl_SBBFahrplan);
@@ -222,9 +290,13 @@
             this.Controls.Add(this.cbo_From);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1206, 730);
+            this.MinimumSize = new System.Drawing.Size(1206, 730);
             this.Name = "FormMain";
             this.Text = "Fahrplan";
             ((System.ComponentModel.ISupportInitialize)(this.dgV_Connections)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgV_StationBoard)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,12 +313,18 @@
         private System.Windows.Forms.Button btn_ShowStationTo;
         private System.Windows.Forms.Label lbl_SBBFahrplan;
         private System.Windows.Forms.DataGridView dgV_Connections;
+        private System.Windows.Forms.Button btn_ShowStationTable;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgV_column_departure;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgV_column_from;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgV_column_to;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgV_column_duration;
         private System.Windows.Forms.DataGridViewTextBoxColumn cbo_column_platform;
-        private System.Windows.Forms.Button btn_ShowStationTable;
+        private System.Windows.Forms.DataGridView dgV_StationBoard;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
     }
 }
 

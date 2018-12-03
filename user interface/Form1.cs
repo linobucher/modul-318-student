@@ -17,10 +17,10 @@ namespace user_interface
         {
             InitializeComponent();
         }
-
+       
         Transport transportAPI = new Transport();
 
-        public void btn_searchconnection_Click(object sender, EventArgs e)
+        private void btn_searchconnection_Click(object sender, EventArgs e)
         {
             dgV_Connections.Rows.Clear();
             dgV_Connections.Visible = true;
@@ -55,7 +55,7 @@ namespace user_interface
         //    Cursor.Current = Cursors.WaitCursor;
         //    Application.DoEvents();
 
-        //    cbo_from.AutoCompleteCustomSource = collection;
+        // cbo_from.AutoCompleteCustomSource = collection;
         //}
 
         //public Stations StationList(string input)
@@ -87,19 +87,35 @@ namespace user_interface
             showStation(cbo_To);
         }
 
+        private string GetStationID(string stationName)
+        {
+            return transportAPI.GetStations(stationName).StationList[0].Id;
+        }
+        
         private void btn_ShowStationTable_Click(object sender, EventArgs e)
         {
-            //dgV_Connections.Rows.Clear();
-            //dgV_Connections.Visible = true;
+            dgV_StationBoard.Rows.Clear();
+            dgV_StationBoard.Visible = true;
 
-            //StationBoardRoot stationBoardAPI = new StationBoardRoot();
-            //Stations stations = new Stations();
+            StationBoardRoot stationBoardAPI = new StationBoardRoot();
+            Stations stations = new Stations();
 
-            //stationBoardAPI = transportAPI.GetStationBoard(cbo_From.Text, cbo_From);
-            //foreach (var stationBoard in stationBoardAPI.Entries)
-            //{
-            //    dgV_Connections.Rows.Add(stationBoard.Name ,stationBoard.To);
-            //}
+            //string id = 
+
+            stationBoardAPI = transportAPI.GetStationBoard(cbo_From.Text, GetStationID(cbo_From.Text));
+
+            foreach (var stationBoard in stationBoardAPI.Entries)
+            {
+                dgV_StationBoard.Rows.Add(stationBoard.Stop.Departure, cbo_From.Text, stationBoard.To, stationBoard.Name, stationBoard.Category);
+            }
+        }
+
+        private void cbo_stations_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btn_SearchConnection.PerformClick();
+            }
         }
     }
 }
