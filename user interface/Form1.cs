@@ -13,24 +13,56 @@ namespace user_interface
 {
     public partial class FormMain : Form
     {
-        Transport transportAPI = new Transport();
-        Connections connectionsAPI = new Connections();
-
         public FormMain()
         {
             InitializeComponent();
         }
 
+        Transport transportAPI = new Transport();
+
+        public void btn_searchconnection_Click(object sender, EventArgs e)
+        {
+            dgV_connections.Rows.Clear();
+            dgV_connections.Visible = true;
+            
+            Connections connectionsAPI = new Connections();
+            ConnectionPoint connectionPointAPI = new ConnectionPoint();
+
+            connectionsAPI = transportAPI.GetConnections(cbo_from.Text, cbo_to.Text);
+            foreach(var connection in connectionsAPI.ConnectionList)
+            {
+                dgV_connections.Rows.Add(connection.From.Station.Name, connection.To.Station.Name, connection.Duration);
+            }
+        }
+
+        //private void cbo_from_TextChanged(object sender, EventArgs e)
+        //{
+        //    AutoCompleteStringCollection collection = new AutoCompleteStringCollection();
+        //    Transport transportAPI = new Transport();
+        //    Stations stationsAPI = new Stations();
+
+        //    collection.Clear();
+
+        //    stationsAPI = transportAPI.GetStations(cbo_from.Text);
+
+        //    foreach(var station in stationsAPI.StationList)
+        //    {
+        //        collection.Add(station.Name);
+        //    }
+
+        //    Cursor.Current = Cursors.WaitCursor;
+        //    Application.DoEvents();
+
+        //    cbo_from.AutoCompleteCustomSource = collection;
+
+        //}
+
         public Stations StationList(string input)
         {
+
             Stations stations = transportAPI.GetStations(input);
             return stations;
         }
-
-        //public Connections ConnectionList(string )
-        //{
-        //    Connection connectins = connectionsAPI.
-        //}
 
         private void btn_showstationfrom_Click(object sender, EventArgs e)
         {
@@ -44,12 +76,6 @@ namespace user_interface
             cbo_to.DroppedDown = true;
             cbo_to.DataSource = StationList(cbo_to.Text).StationList;
             cbo_to.DisplayMember = "name";
-        }
-
-        private void btn_showconnection_Click(object sender, EventArgs e)
-        {
-            lbo_connections.Visible = true;
-            //lbo_connections
         }
     }
 }
