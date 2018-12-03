@@ -31,7 +31,7 @@ namespace user_interface
             connectionsAPI = transportAPI.GetConnections(cbo_from.Text, cbo_to.Text);
             foreach(var connection in connectionsAPI.ConnectionList)
             {
-                dgV_connections.Rows.Add(connection.From.Station.Name, connection.To.Station.Name, connection.Duration);
+                dgV_connections.Rows.Add(connection.From.Departure, connection.From.Station.Name, connection.To.Station.Name, connection.Duration, connection.From.Platform);
             }
         }
 
@@ -42,10 +42,10 @@ namespace user_interface
         //    Stations stationsAPI = new Stations();
 
         //    collection.Clear();
-
+        //    cbo_from.DroppedDown = true;
         //    stationsAPI = transportAPI.GetStations(cbo_from.Text);
 
-        //    foreach(var station in stationsAPI.StationList)
+        //    foreach (var station in stationsAPI.StationList)
         //    {
         //        collection.Add(station.Name);
         //    }
@@ -54,7 +54,6 @@ namespace user_interface
         //    Application.DoEvents();
 
         //    cbo_from.AutoCompleteCustomSource = collection;
-
         //}
 
         public Stations StationList(string input)

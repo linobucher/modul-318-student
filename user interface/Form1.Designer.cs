@@ -38,9 +38,12 @@
             this.btn_showstationto = new System.Windows.Forms.Button();
             this.lbl_SBFAHRPLAN = new System.Windows.Forms.Label();
             this.dgV_connections = new System.Windows.Forms.DataGridView();
+            this.dgV_column_departure = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgV_column_from = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgV_column_to = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgV_column_duration = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbo_column_platform = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgV_connections)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,10 +90,10 @@
             this.btn_searchconnection.BackColor = System.Drawing.Color.Red;
             this.btn_searchconnection.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btn_searchconnection.ForeColor = System.Drawing.Color.White;
-            this.btn_searchconnection.Location = new System.Drawing.Point(668, 279);
+            this.btn_searchconnection.Location = new System.Drawing.Point(668, 233);
             this.btn_searchconnection.Margin = new System.Windows.Forms.Padding(6);
             this.btn_searchconnection.Name = "btn_searchconnection";
-            this.btn_searchconnection.Size = new System.Drawing.Size(376, 65);
+            this.btn_searchconnection.Size = new System.Drawing.Size(372, 69);
             this.btn_searchconnection.TabIndex = 8;
             this.btn_searchconnection.Text = "Verbindung suchen -->";
             this.btn_searchconnection.UseVisualStyleBackColor = false;
@@ -139,9 +142,11 @@
             this.dgV_connections.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgV_connections.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgV_connections.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgV_column_departure,
             this.dgV_column_from,
             this.dgV_column_to,
-            this.dgV_column_duration});
+            this.dgV_column_duration,
+            this.cbo_column_platform});
             this.dgV_connections.Location = new System.Drawing.Point(22, 353);
             this.dgV_connections.Name = "dgV_connections";
             this.dgV_connections.ReadOnly = true;
@@ -149,6 +154,12 @@
             this.dgV_connections.Size = new System.Drawing.Size(1130, 294);
             this.dgV_connections.TabIndex = 12;
             this.dgV_connections.Visible = false;
+            // 
+            // dgV_column_departure
+            // 
+            this.dgV_column_departure.HeaderText = "Abfahrt";
+            this.dgV_column_departure.Name = "dgV_column_departure";
+            this.dgV_column_departure.ReadOnly = true;
             // 
             // dgV_column_from
             // 
@@ -168,11 +179,31 @@
             this.dgV_column_duration.Name = "dgV_column_duration";
             this.dgV_column_duration.ReadOnly = true;
             // 
+            // cbo_column_platform
+            // 
+            this.cbo_column_platform.HeaderText = "Gleis";
+            this.cbo_column_platform.Name = "cbo_column_platform";
+            this.cbo_column_platform.ReadOnly = true;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Maroon;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(22, 233);
+            this.button1.Margin = new System.Windows.Forms.Padding(6);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(372, 69);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Station Table anzeigen -->";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1180, 659);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dgV_connections);
             this.Controls.Add(this.lbl_SBFAHRPLAN);
             this.Controls.Add(this.btn_showstationto);
@@ -203,9 +234,12 @@
         private System.Windows.Forms.Button btn_showstationto;
         private System.Windows.Forms.Label lbl_SBFAHRPLAN;
         private System.Windows.Forms.DataGridView dgV_connections;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgV_column_departure;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgV_column_from;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgV_column_to;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgV_column_duration;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cbo_column_platform;
+        private System.Windows.Forms.Button button1;
     }
 }
 
