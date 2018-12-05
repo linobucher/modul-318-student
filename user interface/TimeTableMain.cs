@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SwissTransport;
+using System.Diagnostics;
 
 namespace user_interface
 {
@@ -90,7 +91,7 @@ namespace user_interface
             dgV_StationBoard.Rows.Clear();
             dgV_Connections.Visible = false;
             dgV_StationBoard.Visible = true;
-            lbl_ShowRoute.Visible = false;
+            lbl_ShowRoute.Visible = true;
 
             StationBoardRoot stationBoardAPI = new StationBoardRoot();
             Stations stations = new Stations();
@@ -164,7 +165,13 @@ namespace user_interface
         private void dgV_Connections_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             string location = $"maps/dir/{cbo_From.Text}/{cbo_To.Text}";
-            System.Diagnostics.Process.Start($"http://www.google.com/{location}");
+            Process.Start($"http://www.google.com/{location}");
+        }
+
+        private void dgV_StationBoard_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string location = $"maps/dir/{cbo_From.Text}/{dgV_StationBoard.CurrentRow.Cells[2].Value.ToString()}";
+            Process.Start($"http://www.google.com/{location}");
         }
     }
 }
