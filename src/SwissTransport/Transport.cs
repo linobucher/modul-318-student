@@ -31,7 +31,7 @@ namespace SwissTransport
             }
             catch
             {
-                MessageBox.Show("Keine Netzverbindung! Bitte verbinden Sie sich mit dem Internet.");
+                MessageBox.Show("Keine Internetverbindung!", "Fahrplan");
             }
             
             return null;
@@ -39,19 +39,27 @@ namespace SwissTransport
 
         public StationBoardRoot GetStationBoard(string station, string id)
         {
-            var request = CreateWebRequest("http://transport.opendata.ch/v1/stationboard?Station=" + station + "&id=" + id);
-            var response = request.GetResponse();
-            var responseStream = response.GetResponseStream();
-
-            if (responseStream != null)
+            try
             {
-                var readToEnd = new StreamReader(responseStream).ReadToEnd();
-                var stationboard =
-                    JsonConvert.DeserializeObject<StationBoardRoot>(readToEnd);
-                return stationboard;
+                var request = CreateWebRequest("http://transport.opendata.ch/v1/stationboard?Station=" + station + "&id=" + id);
+                var response = request.GetResponse();
+                var responseStream = response.GetResponseStream();
+
+                if (responseStream != null)
+                {
+                    var readToEnd = new StreamReader(responseStream).ReadToEnd();
+                    var stationboard =
+                        JsonConvert.DeserializeObject<StationBoardRoot>(readToEnd);
+                    return stationboard;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Keine Internetverbindung!", "Fahrplan");
             }
             return null;
         }
+            
         /// <summary>
         ///try catch pastet, because of Exceptionhandling
         /// </summary>

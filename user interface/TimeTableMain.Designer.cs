@@ -241,7 +241,6 @@
             this.dgV_StationBoard.TabIndex = 12;
             this.dgV_StationBoard.TabStop = false;
             this.dgV_StationBoard.Visible = false;
-            this.dgV_StationBoard.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgV_Connections_CellContentDoubleClick);
             // 
             // dataGridViewTextBoxColumn1
             // 

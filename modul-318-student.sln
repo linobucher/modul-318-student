@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{C5396B55-D8F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "user interface", "user interface\user interface.csproj", "{2A8A4350-0FE4-4696-B6CA-5DB290E6C106}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup_FahrplanLino", "Setup_FahrplanLino\Setup_FahrplanLino.vdproj", "{84D2FB8A-4488-45BA-ADE9-C370E53C9161}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,8 @@ Global
 		{2A8A4350-0FE4-4696-B6CA-5DB290E6C106}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A8A4350-0FE4-4696-B6CA-5DB290E6C106}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A8A4350-0FE4-4696-B6CA-5DB290E6C106}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84D2FB8A-4488-45BA-ADE9-C370E53C9161}.Debug|Any CPU.ActiveCfg = Debug
+		{84D2FB8A-4488-45BA-ADE9-C370E53C9161}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

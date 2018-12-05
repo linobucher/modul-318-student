@@ -114,16 +114,24 @@ namespace user_interface
         {
             if(Input.Text != String.Empty)
             {
-                var text = Input.Text;
-                var newStations = transportAPI.GetStations(Input.Text);
-               if (newStations.StationList.Count > 0 && newStations.StationList[0].Name != String.Empty)
+                try
                 {
-                    stations = newStations;
-                    Input.DataSource = newStations.StationList;
-                    Input.DroppedDown = true;
-                    Input.Text = text;
-                    Input.SelectionStart = text.Length;
+                    var text = Input.Text;
+                    var newStations = transportAPI.GetStations(Input.Text);
+                    if (newStations.StationList.Count > 0 && newStations.StationList[0].Name != String.Empty)
+                    {
+                        stations = newStations;
+                        Input.DataSource = newStations.StationList;
+                        Input.DroppedDown = true;
+                        Input.Text = text;
+                        Input.SelectionStart = text.Length;
+                    }
                 }
+                catch
+                {
+                    MessageBox.Show("Es ist ein Fehler aufgetreten! Bitte geben Sie eine Station ein");
+                }
+                
             }
         }
 
