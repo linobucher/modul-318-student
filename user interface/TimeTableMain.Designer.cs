@@ -50,7 +50,8 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_SendMail = new System.Windows.Forms.Button();
+            this.checkbox_AutoCompletionOnOff = new System.Windows.Forms.CheckBox();
+            this.lbl_ShowRoute = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgV_Connections)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgV_StationBoard)).BeginInit();
             this.SuspendLayout();
@@ -169,6 +170,7 @@
             this.dgV_Connections.TabIndex = 0;
             this.dgV_Connections.TabStop = false;
             this.dgV_Connections.Visible = false;
+            this.dgV_Connections.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgV_Connections_CellContentDoubleClick);
             // 
             // dgV_column_departure
             // 
@@ -231,7 +233,7 @@
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5});
             this.dgV_StationBoard.GridColor = System.Drawing.SystemColors.Control;
-            this.dgV_StationBoard.Location = new System.Drawing.Point(21, 311);
+            this.dgV_StationBoard.Location = new System.Drawing.Point(22, 311);
             this.dgV_StationBoard.Name = "dgV_StationBoard";
             this.dgV_StationBoard.ReadOnly = true;
             this.dgV_StationBoard.RowTemplate.Height = 33;
@@ -239,6 +241,7 @@
             this.dgV_StationBoard.TabIndex = 12;
             this.dgV_StationBoard.TabStop = false;
             this.dgV_StationBoard.Visible = false;
+            this.dgV_StationBoard.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgV_Connections_CellContentDoubleClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -275,21 +278,33 @@
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
             this.dataGridViewTextBoxColumn5.Width = 55;
             // 
-            // btn_SendMail
+            // checkbox_AutoCompletionOnOff
             // 
-            this.btn_SendMail.Location = new System.Drawing.Point(1016, 670);
-            this.btn_SendMail.Name = "btn_SendMail";
-            this.btn_SendMail.Size = new System.Drawing.Size(136, 36);
-            this.btn_SendMail.TabIndex = 13;
-            this.btn_SendMail.Text = "Teilen ↑";
-            this.btn_SendMail.UseVisualStyleBackColor = true;
+            this.checkbox_AutoCompletionOnOff.AutoSize = true;
+            this.checkbox_AutoCompletionOnOff.Location = new System.Drawing.Point(439, 255);
+            this.checkbox_AutoCompletionOnOff.Name = "checkbox_AutoCompletionOnOff";
+            this.checkbox_AutoCompletionOnOff.Size = new System.Drawing.Size(192, 29);
+            this.checkbox_AutoCompletionOnOff.TabIndex = 13;
+            this.checkbox_AutoCompletionOnOff.Text = "Autocompletion";
+            this.checkbox_AutoCompletionOnOff.UseVisualStyleBackColor = true;
+            // 
+            // lbl_ShowRoute
+            // 
+            this.lbl_ShowRoute.AutoSize = true;
+            this.lbl_ShowRoute.Location = new System.Drawing.Point(21, 654);
+            this.lbl_ShowRoute.Name = "lbl_ShowRoute";
+            this.lbl_ShowRoute.Size = new System.Drawing.Size(449, 25);
+            this.lbl_ShowRoute.TabIndex = 14;
+            this.lbl_ShowRoute.Text = "*Doppelklick auf Spalte um Route anzuzeigen";
+            this.lbl_ShowRoute.Visible = false;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 737);
-            this.Controls.Add(this.btn_SendMail);
+            this.ClientSize = new System.Drawing.Size(1184, 691);
+            this.Controls.Add(this.lbl_ShowRoute);
+            this.Controls.Add(this.checkbox_AutoCompletionOnOff);
             this.Controls.Add(this.dgV_StationBoard);
             this.Controls.Add(this.btn_ShowStationTable);
             this.Controls.Add(this.dgV_Connections);
@@ -304,8 +319,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1210, 808);
-            this.MinimumSize = new System.Drawing.Size(1210, 808);
+            this.MinimumSize = new System.Drawing.Size(1210, 736);
             this.Name = "FormMain";
             this.Text = "Fahrplan";
             ((System.ComponentModel.ISupportInitialize)(this.dgV_Connections)).EndInit();
@@ -338,7 +352,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.Button btn_SendMail;
+        private System.Windows.Forms.CheckBox checkbox_AutoCompletionOnOff;
+        private System.Windows.Forms.Label lbl_ShowRoute;
     }
 }
 
