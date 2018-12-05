@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwissTransportTest", "tests
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{C5396B55-D8FB-4E46-8825-FDCFDF84279F}"
 	ProjectSection(SolutionItems) = preProject
-		Abgabe-LinoBucher\Doc.Lino.docx = Abgabe-LinoBucher\Doc.Lino.docx
+		..\Doc.Lino.docx = ..\Doc.Lino.docx
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "user interface", "user interface\user interface.csproj", "{2A8A4350-0FE4-4696-B6CA-5DB290E6C106}"
